@@ -90,7 +90,8 @@ keymap = [
   { keys = ["r"], commands = ["rename_append"] },
   { keys = ["R"], commands = ["rename_prepend"] },
   { keys = ["ctrl+g"], commands = ["shell lazygit"] },
-
+  { keys = ["a"], commands = [":shell nvim "] },
+  { keys = ["A"], commands = [":mkdir "] },
 
   { keys = ["f", "t"], commands = [":touch "] },
 
@@ -137,6 +138,7 @@ keymap = [
   { keys = ["g", "d"], commands = ["cd ~/Downloads"] },
   { keys = ["g", "e"], commands = ["cd /etc"] },
   { keys = ["g", "h"], commands = ["cd ~/"] },
+  { keys = ["g", "p"], commands = ["cd ~/project"] },
   { keys = ["?"], commands = ["help"] },
 ]
 
