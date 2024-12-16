@@ -133,3 +133,40 @@ export NODE_OPTIONS=--openssl-legacy-provider
 # default editor
 export VISUAL=nvim
 export EDITOR=nvim
+
+# rust cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# joshuto 文件管理器增强函数
+# 功能：
+# 1. 退出 joshuto 后自动切换到最后浏览的目录
+# 2. 处理文件选择和其他退出状态
+# 使用方法：直接输入 joshuto 启动
+# 退出状态说明：
+# - 0: 正常退出
+# - 101: 切换到最后浏览的目录
+# - 102: 文件选择模式
+function joshuto() {
+  ID="$$"
+  mkdir -p /tmp/$USER
+  OUTPUT_FILE="/tmp/$USER/joshuto-cwd-$ID"
+  env joshuto --output-file "$OUTPUT_FILE" $@
+  exit_code=$?
+
+  case "$exit_code" in
+    # regular exit
+    0)
+      ;;
+    # output contains current directory
+    101)
+      JOSHUTO_CWD=$(cat "$OUTPUT_FILE")
+      cd "$JOSHUTO_CWD"
+      ;;
+    # output selected files
+    102)
+      ;;
+    *)
+      echo "Exit code: $exit_code"
+      ;;
+  esac
+}
