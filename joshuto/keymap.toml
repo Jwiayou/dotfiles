@@ -44,10 +44,12 @@ keymap = [
   { keys = ["end"], commands = ["cursor_move_end"] },
   { keys = ["page_up"], commands = ["cursor_move_page_up"] },
   { keys = ["page_down"], commands = ["cursor_move_page_down"] },
-  { keys = ["ctrl+u"], commands = ["cursor_move_page_up 0.5"] },
-  { keys = ["ctrl+d"], commands = ["cursor_move_page_down 0.5"] },
+  # { keys = ["ctrl+u"], commands = ["cursor_move_page_up 0.5"] },
+  # { keys = ["ctrl+d"], commands = ["cursor_move_page_down 0.5"] },
+  { keys = ["ctrl+u"], commands = ["cursor_move_up 3"] },
+  { keys = ["ctrl+d"], commands = ["cursor_move_down 3"] },
   { keys = ["ctrl+b"], commands = ["cursor_move_page_up"] },
-  { keys = ["ctrl+f"], commands = ["cursor_move_page_down"] },
+  # { keys = ["ctrl+f"], commands = ["cursor_move_page_down"] },
 
   # vim-like keybindings
   { keys = ["j"], commands = ["cursor_move_down"] },
@@ -57,8 +59,11 @@ keymap = [
   { keys = ["g", "g"], commands = ["cursor_move_home"] },
   { keys = ["G"], commands = ["cursor_move_end"] },
   # { keys = ["r"], commands = ["open_with"] },
-  { keys = ["J"], commands = ["cursor_move_down 3"] },
-  { keys = ["K"], commands = ["cursor_move_up 3"] },
+  # { keys = ["J"], commands = ["cursor_move_down 3"] },
+  # { keys = ["K"], commands = ["cursor_move_up 3"] },
+  { keys = ["J"], commands = ["preview_cursor_move_down"] },
+  { keys = ["K"], commands = ["preview_cursor_move_up"] },
+
 
   { keys = ["H"], commands = ["cursor_move_page_home"] },
   { keys = ["L"], commands = ["cursor_move_page_middle"] },
@@ -113,8 +118,8 @@ keymap = [
   { keys = ["/"], commands = [":search "] },
   { keys = ["|"], commands = [":search_inc "] },
   { keys = ["\\"], commands = [":search_glob "] },
-  { keys = ["S"], commands = ["search_fzf"] },
-  { keys = ["C"], commands = ["subdir_fzf"] },
+  { keys = ["C"], commands = ["search_fzf"] },
+  { keys = ["ctrl+f"], commands = ["subdir_fzf"] },
 
   { keys = ["n"], commands = ["search_next"] },
   { keys = ["N"], commands = ["search_prev"] },
